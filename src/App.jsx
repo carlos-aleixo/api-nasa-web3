@@ -48,21 +48,22 @@ const App = () => {
             <p className="text-secondary text-right">Corpos celestes próximos ao nosso planeta</p>
           </div>
         </div>
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-          {neoData.map((neo) => (
-            <div key={neo.id} className="col">
+        <div className="row">
+          {neoData.map((neo, index) => (
+            <div key={neo.id} className="col-lg-4 col-md-6 mb-4">
               <div className="card-item">
                 <div className="card h-100 shadow">
-                  <div className="card-body">
-                    <h5 className="card-title">{neo.name}</h5>
-                    <p className="card-text">Observação iniciada no dia {neo.orbital_data.first_observation_date} até o dia {neo.orbital_data.last_observation_date}</p>
-                    <p className="card-text">Diâmetro estimado: {neo.estimated_diameter.kilometers.estimated_diameter_min.toFixed(2)} - {neo.estimated_diameter.kilometers.estimated_diameter_max.toFixed(2)} km</p>
-                  </div>
+                  <h5 className="card-title">{neo.name}</h5>
+                  <p className="card-text">
+                    Observação iniciada no dia {neo.orbital_data.first_observation_date} até o dia {neo.orbital_data.last_observation_date}
+                  </p>
+                  <p className="card-text">
+                    Diâmetro estimado: {neo.estimated_diameter.kilometers.estimated_diameter_min.toFixed(2)} - {neo.estimated_diameter.kilometers.estimated_diameter_max.toFixed(2)} km
+                  </p>
                 </div>
               </div>
             </div>
           ))}
-
         </div>
         <ReactPaginate
           pageCount={neoData.length}
