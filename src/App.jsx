@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
+import './App.scss';
 
 const App = () => {
   const [neoData, setNeoData] = useState([]);
